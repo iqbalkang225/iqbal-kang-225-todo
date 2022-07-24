@@ -30,14 +30,11 @@ input.addEventListener("keydown", (e) => {
 todoContainer.addEventListener("click", (e) => {
   if (e.target.classList.contains("todo-delete")) {
     e.target.parentElement.parentElement.remove();
-  } else if (e.target.classList.contains("todo")) {
-    e.target.classList.toggle("completed");
   }
+  e.target.closest(".todo-item").classList.toggle("completed");
 });
 
 todoContainer.addEventListener("contextmenu", (e) => {
   e.preventDefault();
-  if (e.target.classList.contains("todo")) {
-    e.target.parentElement.remove();
-  }
+  e.target.closest(".todo-item").remove();
 });
